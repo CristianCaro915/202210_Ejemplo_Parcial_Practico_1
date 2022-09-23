@@ -7,56 +7,50 @@
 3. Abra el proyecto en Spring Tools (o en el editor de su preferencia)
 4. Lea el enunciado completamente antes de iniciar
 
-## Punto 1 (30%). Persistencia
+Parcial Práctico 1
+Instrucciones
+Clone el repositorio 
+Abra el proyecto en Visual Studio Code (o en el editor de su preferencia)
+Lea el enunciado completamente antes de iniciar
 
-Esta aplicación tiene el propósito de crear un sistema de información para un consultorio médico.
+Punto 1 (30%). Persistencia
+Esta aplicación tiene el propósito de crear un sistema de información para una cadena de hoteles.
 
-(15%) Cree la entidad _MedicoEntity_ en la carpeta correspondiente. Un médico tiene un nombre, un apellido, un registro médico, una especilidad y un id de tipo _Long_ que representa su llave primaria.
+(10%) Cree la entidad HotelEntity. Un Hotel tiene un nombre, una dirección, un número de estrellas y un id de tipo Long que representa su llave primaria.
 
-(15%) Realice la implementación de la persistencia del médico.
+(10%) Cree la entidad HabitacionEntity. Una habitación tiene un número de identificación, un número de personas que pueden estar en la habitación, un número de camas, un número de baños y un id de tipo Long que representa su llave primaria.
 
-## Punto 2 (40%). Lógica
+Tenga en cuenta que un hotel tiene un número de habitaciones y una habitación solo está en un hotel.
 
-(20%) Usted debe crear la lógica de la aplicación; para esto implemente la clase correspondiente y el método _getMedicos_.
+(10%) Cree los repositorios para HotelEntity y HabitacionEntity.
 
-(20%) Crear la prueba unitaria para el método _getMedicos_.
+Punto 2 (30%). Lógica
+		 	 	 		
+			
+				
+					
+						
+(10%) Cree la clase correspondiente para la lógica de Hotel. Implemente únicamente el método createHoteles. Valide que el nombre del hotel no esté repetido y que el número de estrellas este entre 1 y 5.
+						
+(10%) Cree la clase correspondiente para la lógica de Habitación. Implemente únicamente el método createHabitacion. Valide que una habitación númeroIdentificación <= númeroCamas. 
+					
+				
+			
+		
 
-## Punto 3 (20%). API
+(10%) Cree la clase correspondiente para la lógica de la asociación entre Hotel y habitación. Implemente únicamente el método addHabitacion. Este método recibe como parámetro el id del hotel, el id de la habitación y le agrega la habitación al hotel. Valide que tanto el hotel como la habitación existan.
 
-(5%) Cree la clase _MedicoDTO_ con los atributos correspondientes. 
+Punto 3 (40%). Prueba de lógica
+(10%) Implemente las pruebas para el método createHoteles del servicio de hotel. Asegúrese de crear dos pruebas: una donde el hotel se crea correctamente y otra donde se lanza una excepción de negocio por la violación de la regla de negocio.
 
-(5%) Cree la clase _MedicoController_
+(10%) Implemente las pruebas para el método createHabitacion del servicio de habitación. Asegúrese de crear dos pruebas: una donde la habitación se crea correctamente y otra donde se lanza una excepción de negocio por la violación de la regla de negocio.
 
-(10%) Implemente el método _findAll_ para que llame al método de la lógica que obtiene todos los médicos, y retorna al usuario el listado de todos los médicos.
+(20%) Implemente las pruebas para el método addHabitacion del servicio de la asociación. Asegúrese de crear tres pruebas: una donde la habitación se agrega correctamente al hotel; otra donde se lanza una excepción de negocio porque el hotel no existe; y otra donde se lanza una excepción porque la habitación no existe.
 
-## Punto 4 (10%). Pruebas de Postman
+Punto 4 (10%). Bono API
+Cree las clases HabitacionDTO con los atributos correspondientes.
+Cree la clase HabitacionController
+Implemente el método de la logica que crea una habitación.
+Cree una prueba de Postman que verifique que se crea la habitación de forma correcta
 
-(5%) Desde la consola de H2 inserte varios registros en la tabla MEDICO_ENTITY. Guarde las instrucciones SQL en el archivo _sql/data.sql_ del proyecto.   
-
-(5%) Cree la siguiente prueba de integración en una colección y expórtela en la carpeta _collections_ del proyecto.
-
-### Obtener todos los médicos
-
-Se espera un resultado semejante a este ejemplo:
-```
-Method: GET
-URL: http://localhost:8080/api/medicos
-Response Status: 200
-Response body:
-[{
-	"id": 1,
-	"nombre": "Juan Jose",
-	"apellido": "Rodríguez Ortiz"
-	"registroMedico": "FC3578K",
-	"especialidad": "Anestesiología"
-},
-{
-	"id": 2,
-	"nombre": "María Paula",
-	"apellido": "Sarmiento Mancipe"
-	"registroMedico": "DE7825",
-	"especialidad": "Medicina Interna"
-}]
-```
-
-
+Solo se obtiene el bono si se realiza de forma completa, hacer parte del bono y no terminarlo no da puntajes intermedios.
